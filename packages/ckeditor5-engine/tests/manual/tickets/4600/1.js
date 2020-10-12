@@ -127,7 +127,7 @@ ClassicEditor
 	} )
 	.then( editor => {
 		window.editor = editor;
-		addEventDispatcherForButtons( editor, 'keyup' );
+		addEventDispatcherForButtons( editor, 'click' );
 	} )
 	.catch( error => {
 		console.error( error.stack );
@@ -143,7 +143,11 @@ function addEventDispatcherForButtons( editor, eventName ) {
 		.viewToDom( container )
 		.querySelectorAll( 'button' )
 		.forEach( button => {
-			button.addEventListener( 'click', () => {
+			button.addEventListener( 'click', event => {
+				if ( !event.isTrusted ) {
+					return;
+				}
+
 				console.log( `Dispatched ${ eventName } event.` );
 				button.dispatchEvent( new Event( eventName, { bubbles: true } ) );
 			} );
