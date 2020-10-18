@@ -32,6 +32,7 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 import Font from '@ckeditor/ckeditor5-font/src/font';
+import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount';
 
 class ClassicEditor extends ClassicEditorBase {}
 class InlineEditor extends InlineEditorBase {}
@@ -62,7 +63,8 @@ const plugins = [
 	TableToolbar,
 	TextTransformation,
 	Font,
-	Underline
+	Underline,
+	WordCount
 ]; 
 
 ClassicEditor.builtinPlugins = plugins;

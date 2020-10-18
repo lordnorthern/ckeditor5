@@ -33,28 +33,20 @@
         .catch( err => {
             console.error( err.stack );
         } );
-
+    let inlineEditorInstance = null;
     CKEDITOR.InlineEditor
-        .create( document.querySelector( '#inline-editor' ),{
-            fontColor: {
-					colors: [
-						{color: '#fff',hasBorder: true},
-						{color: '#000',hasBorder: true},
-						{color: '#ff5400',hasBorder: true},
-						{color: '#ffc556',hasBorder: true},
-						{color: '#6797c7',hasBorder: true},
-						{color: '#2b394a',hasBorder: true},
-						{color: '#292b2c',hasBorder: true},
-						{color: '#f7f7f7',hasBorder: true},
-						{color: '#f00',hasBorder: true},
-						{color: '#0f0',hasBorder: true},
-						{color: '#00f',hasBorder: true},
-					]
-				},
+        .create( document.querySelector( '#inline-editor' ) )
+        .then( editor =>{
+            editor.plugins.get( 'WordCount' ).on( 'update', ( evt, stats ) => {
+            // Prints the current content statistics.
+            console.log( `Characters: ${ stats.characters }\nWords:      ${ stats.words }` );
+        } );
         })
         .catch( err => {
             console.error( err.stack );
         } );
+
+        
 </script>
 
 </body>

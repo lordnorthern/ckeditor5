@@ -73,6 +73,8 @@
     "preversion": "npm run build"
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-font": "^23.0.0"
+    "@ckeditor/ckeditor5-font": "^23.0.0",
+    "@ckeditor/ckeditor5-word-count": "^23.0.0",
+    "yarn": "^1.22.10"
   }
 }
